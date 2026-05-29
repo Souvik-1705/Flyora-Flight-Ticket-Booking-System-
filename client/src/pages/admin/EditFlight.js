@@ -100,13 +100,7 @@ const EditFlight = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
 
-    fetchFlight();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-
-  }, [id]);
-
-  const fetchFlight =
+    const fetchFlight =
     async () => {
 
       try {
@@ -178,6 +172,14 @@ const EditFlight = () => {
       }
 
     };
+
+    fetchFlight();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, [id]);
+
+  
 
   // update flight
 

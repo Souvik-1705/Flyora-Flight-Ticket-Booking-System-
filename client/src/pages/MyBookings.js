@@ -25,49 +25,7 @@ const MyBookings = () => {
     );
 
 
-  const fetchBookings =
-    async () => {
 
-      try {
-
-        setLoading(true);
-
-
-
-        const res =
-          await fetch(
-
-            `${BASE_URL}/api/bookings/my`,
-
-            {
-
-              headers: {
-
-                Authorization:
-                  `Bearer ${userInfo.token}`,
-
-              },
-
-            }
-
-          );
-
-        const data =
-          await res.json();
-
-        setBookings(data);
-
-      } catch (error) {
-
-        console.log(error);
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-    };
 
   const cancelBooking = async (id) => {
 
@@ -171,9 +129,53 @@ const MyBookings = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
 
+    const fetchBookings =
+      async () => {
+
+        try {
+
+          setLoading(true);
+
+
+
+          const res =
+            await fetch(
+
+              `${BASE_URL}/api/bookings/my`,
+
+              {
+
+                headers: {
+
+                  Authorization:
+                    `Bearer ${userInfo.token}`,
+
+                },
+
+              }
+
+            );
+
+          const data =
+            await res.json();
+
+          setBookings(data);
+
+        } catch (error) {
+
+          console.log(error);
+
+        } finally {
+
+          setLoading(false);
+
+        }
+
+      };
+
     fetchBookings();
 
-    
+
 
   }, []);
 
