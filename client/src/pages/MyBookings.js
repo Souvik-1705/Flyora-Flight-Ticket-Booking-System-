@@ -46,7 +46,7 @@ const MyBookings = () => {
     } finally {
       setLoading(false);
     }
-  }, [userInfo]);
+  }, [userInfo?.token]);
 
   const cancelBooking = async (id) => {
 
