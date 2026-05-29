@@ -1,7 +1,8 @@
 import React,
 {
   useEffect,
-  useState
+  useState,
+  useCallback
 }
   from 'react';
 
@@ -25,49 +26,27 @@ const MyBookings = () => {
     );
 
 
-  const fetchBookings =
-    async () => {
+  const fetchBookings = useCallback(async () => {
+    try {
+      setLoading(true);
 
-      try {
+      const res = await fetch(
+        `${BASE_URL}/api/bookings/my`,
+        {
+          headers: {
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
 
-        setLoading(true);
-
-
-
-        const res =
-          await fetch(
-
-            `${BASE_URL}/api/bookings/my`,
-
-            {
-
-              headers: {
-
-                Authorization:
-                  `Bearer ${userInfo.token}`,
-
-              },
-
-            }
-
-          );
-
-        const data =
-          await res.json();
-
-        setBookings(data);
-
-      } catch (error) {
-
-        console.log(error);
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-    };
+      const data = await res.json();
+      setBookings(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, [userInfo]);
 
   const cancelBooking = async (id) => {
 
@@ -173,9 +152,9 @@ const MyBookings = () => {
 
     fetchBookings();
 
-    
 
-  }, []);
+
+  }, [fetchBookings]);
 
   if (!userInfo) {
 
