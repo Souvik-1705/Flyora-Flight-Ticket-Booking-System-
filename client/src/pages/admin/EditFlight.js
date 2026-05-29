@@ -92,7 +92,7 @@ const EditFlight = () => {
 
     }
 
-  }, []);
+  }, [navigate]);
 
   // fetch flight
 
@@ -100,7 +100,7 @@ const EditFlight = () => {
 
     fetchFlight();
 
-  }, []);
+  }, [id]);
 
   const fetchFlight =
     async () => {

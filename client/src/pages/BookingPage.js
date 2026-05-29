@@ -14,8 +14,6 @@ const BookingPage = () => {
     const [flight, setFlight] =
         useState(null);
 
-    const [loading, setLoading] =
-        useState(false);
 
     const [classType, setClassType] =
         useState("Economy");
@@ -30,33 +28,35 @@ const BookingPage = () => {
             },
         ]);
 
-    // fetch flight
-    const fetchFlight = async () => {
-
-        try {
-
-            const res =
-                await fetch(
-                    `${BASE_URL}/api/flights/${id}`
-                );
-
-            const data = await res.json();
-
-            setFlight(data);
-
-        } catch (error) {
-
-            console.log(error);
-
-        }
-
-    };
 
     useEffect(() => {
 
+        // fetch flight
+        const fetchFlight = async () => {
+
+            try {
+
+                const res =
+                    await fetch(
+                        `${BASE_URL}/api/flights/${id}`
+                    );
+
+                const data = await res.json();
+
+                setFlight(data);
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        };
+
+
         fetchFlight();
 
-    }, []);
+    }, [id]);
 
     // add passenger
     const addPassengerHandler = () => {
@@ -139,7 +139,7 @@ const BookingPage = () => {
                 flight,
 
                 passengers,
-                
+
                 classType,
 
                 ticketPrice

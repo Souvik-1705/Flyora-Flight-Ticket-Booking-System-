@@ -46,7 +46,7 @@ const AdminFlights = () => {
 
     }
 
-  }, []);
+  }, [navigate]);
 
   // fetch flights
 

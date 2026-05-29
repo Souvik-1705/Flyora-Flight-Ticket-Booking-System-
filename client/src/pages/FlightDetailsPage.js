@@ -12,32 +12,7 @@ const FlightDetailsPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const fetchFlight = async () => {
 
-    try {
-
-      setLoading(true);
-
-      const res =
-        await fetch(
-          `${BASE_URL}/api/flights/${id}`
-        );
-
-      const data = await res.json();
-
-      setFlight(data);
-
-    } catch (error) {
-
-      console.log(error);
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  };
 
   const continueHandler = () => {
     const userInfo = localStorage.getItem("userInfo");
@@ -51,6 +26,33 @@ const FlightDetailsPage = () => {
   };
 
   useEffect(() => {
+
+    const fetchFlight = async () => {
+
+      try {
+
+        setLoading(true);
+
+        const res =
+          await fetch(
+            `${BASE_URL}/api/flights/${id}`
+          );
+
+        const data = await res.json();
+
+        setFlight(data);
+
+      } catch (error) {
+
+        console.log(error);
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    };
 
     fetchFlight();
 

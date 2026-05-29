@@ -38,7 +38,7 @@ const CreateFlight = () => {
 
     }
 
-  }, []);
+  }, [navigate]);
 
   // form states
 

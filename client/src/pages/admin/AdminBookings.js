@@ -45,7 +45,7 @@ const AdminBookings = () => {
 
     }
 
-  }, []);
+  }, [navigate]);
 
   // fetch bookings
 
