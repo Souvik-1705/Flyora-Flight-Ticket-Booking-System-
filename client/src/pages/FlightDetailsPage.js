@@ -56,7 +56,7 @@ const FlightDetailsPage = () => {
 
     fetchFlight();
 
-  }, []);
+  }, [id]);
 
   if (loading) {
 

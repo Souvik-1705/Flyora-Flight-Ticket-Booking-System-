@@ -96,9 +96,13 @@ const EditFlight = () => {
 
   // fetch flight
 
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
 
     fetchFlight();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 
   }, [id]);
 
