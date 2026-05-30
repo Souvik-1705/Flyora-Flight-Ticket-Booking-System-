@@ -188,24 +188,45 @@ const HomePage = () => {
 
                         {/* Date */}
 
-                        <input
-                            type="date"
-                            value={date}
-                            onChange={(e) =>
-                                setDate(e.target.value)
-                            }
-                            className="
-                                bg-slate-800
-                                border
-                                border-slate-700
-                                rounded-xl
-                                px-4
-                                py-3
-                                outline-none
-                                focus:border-blue-500
-                            "
-                        />
+                        <div className="relative w-full">
 
+                            {!date && (
+                                <span
+                                    className="
+                sm:hidden
+                absolute
+                left-4
+                top-1/2
+                -translate-y-1/2
+                text-slate-400
+                pointer-events-none
+                text-sm
+            "
+                                >
+                                    DD-MM-YYYY
+                                </span>
+                            )}
+
+                            <input
+                                type="date"
+                                value={date}
+                                onChange={(e) =>
+                                    setDate(e.target.value)
+                                }
+                                className="
+            w-full
+            bg-slate-800
+            border
+            border-slate-700
+            rounded-xl
+            px-4
+            py-3
+            outline-none
+            focus:border-blue-500
+        "
+                            />
+
+                        </div>
 
                         {/* Search Button */}
 
