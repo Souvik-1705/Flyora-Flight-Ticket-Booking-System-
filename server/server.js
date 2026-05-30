@@ -8,6 +8,7 @@ import flightRoutes from "./routes/flightRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
 
 connectDB();
 
@@ -21,6 +22,7 @@ app.use("/api/flights",flightRoutes);
 app.use("/api/bookings",bookingRoutes);
 app.use("/api/payments",paymentRoutes);
 app.use("/api/admin",adminRoutes);
+app.use("/api/chat",aiRoutes);
 
 const port = process.env.PORT;
 app.get("/",(req,res)=>{
