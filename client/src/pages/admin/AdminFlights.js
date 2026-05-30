@@ -3,7 +3,7 @@ import React,
   useEffect,
   useState
 }
-from "react";
+  from "react";
 
 import {
   Link,
@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 
 import AdminNavbar
-from "../../components/admin/AdminNavbar";
+  from "../../components/admin/AdminNavbar";
 import { BASE_URL } from "../../config";
 
 const AdminFlights = () => {
@@ -163,8 +163,10 @@ const AdminFlights = () => {
         className="
           max-w-7xl
           mx-auto
-          px-6
-          py-10
+          px-4
+          sm:px-6
+          py-6
+          md:py-10
         "
       >
 
@@ -186,7 +188,9 @@ const AdminFlights = () => {
 
             <h1
               className="
-                text-5xl
+                text-3xl
+                md:text-4xl
+                lg:text-5xl
                 font-bold
                 mb-3
               "
@@ -197,7 +201,8 @@ const AdminFlights = () => {
             <p
               className="
                 text-slate-400
-                text-lg
+                text-base
+                md:text-lg
               "
             >
               Edit, delete and
@@ -209,16 +214,18 @@ const AdminFlights = () => {
           <Link
             to="/admin/create-flight"
             className="
-              bg-blue-600
-              hover:bg-blue-700
-              transition
-              duration-300
-              px-6
-              py-3
-              rounded-2xl
-              font-semibold
-              shadow-lg
-              text-center
+            w-full
+            md:w-auto
+          bg-blue-600
+          hover:bg-blue-700
+            transition
+            duration-300
+            px-6
+            py-3
+            rounded-2xl
+            font-semibold
+            shadow-lg
+            text-center
             "
           >
             + Create Flight
@@ -261,6 +268,7 @@ const AdminFlights = () => {
 
               <table
                 className="
+                  min-w-[900px]
                   w-full
                   border-collapse
                 "

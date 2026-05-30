@@ -177,7 +177,8 @@ const MyBookings = () => {
           border
           border-slate-800
           rounded-3xl
-          p-10
+          p-6
+          md:p-10
           text-center
           max-w-xl
           w-full
@@ -186,7 +187,8 @@ const MyBookings = () => {
 
           <h1
             className="
-            text-4xl
+            text-2xl
+            md:text-4xl
             font-bold
             text-white
             mb-4
@@ -269,8 +271,10 @@ const MyBookings = () => {
         min-h-screen
         bg-slate-950
         text-white
-        px-6
-        py-10
+        px-4
+        sm:px-6
+        py-6
+        md:py-10
       "
     >
 
@@ -291,7 +295,7 @@ const MyBookings = () => {
 
           <h1
             className="
-              text-5xl
+              text-3xl md:text-4xl lg:text-5xl
               font-bold
               mb-3
             "
@@ -302,7 +306,8 @@ const MyBookings = () => {
           <p
             className="
               text-slate-400
-              text-lg
+              text-base
+              md:text-lg
             "
           >
             View all your booked flights.
@@ -354,10 +359,11 @@ const MyBookings = () => {
 
         <div
           className="
-    grid
-    lg:grid-cols-2
-    gap-8
-  "
+          grid
+          grid-cols-1
+          xl:grid-cols-2
+          gap-6
+          "
         >
           {bookings.map((booking) => {
             if (!booking.flight) return null;
@@ -384,8 +390,11 @@ const MyBookings = () => {
                 <div
                   className="
             flex
-            justify-between
-            items-center
+flex-col
+sm:flex-row
+gap-4
+justify-between
+sm:items-center
             p-6
             border-b
             border-slate-800
@@ -433,8 +442,11 @@ const MyBookings = () => {
                   <div
                     className="
               flex
-              items-center
-              justify-between
+flex-col
+md:flex-row
+items-center
+justify-between
+gap-6
             "
                   >
                     <div className="text-center">

@@ -13,6 +13,8 @@ const Login = () => {
 
   const [password, setPassword] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -27,6 +29,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
+
+      setLoading(true);
 
       const res =
         await fetch(
@@ -60,7 +64,7 @@ const Login = () => {
         "userInfo",
         JSON.stringify(data)
       );
-      
+
       toast.success("Login Successful");
       navigate(redirect);
 
@@ -68,6 +72,8 @@ const Login = () => {
 
       console.log(error);
 
+    } finally {
+      setLoading(false);
     }
 
   };
@@ -177,20 +183,27 @@ const Login = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="
-              w-full
-              bg-blue-600
-              hover:bg-blue-700
-              transition
-              duration-300
-              text-white
-              py-3
-              rounded-xl
-              font-semibold
-              shadow-lg
-            "
+    w-full
+    bg-blue-600
+    hover:bg-blue-700
+    transition
+    duration-300
+    text-white
+    py-3
+    rounded-xl
+    font-semibold
+    shadow-lg
+    disabled:opacity-70
+    disabled:cursor-not-allowed
+  "
           >
-            Login
+            {
+              loading
+                ? "Logging In..."
+                : "Login"
+            }
           </button>
 
         </form>

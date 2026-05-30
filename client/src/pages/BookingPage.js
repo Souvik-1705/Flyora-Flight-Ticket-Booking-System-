@@ -278,40 +278,57 @@ const BookingPage = () => {
                                         Per Passenger
                                     </p>
 
-                                    <select
-                                        value={classType}
-                                        onChange={(e) =>
-                                            setClassType(
-                                                e.target.value
-                                            )
-                                        }
-                                        className="
-        mt-4
-        bg-slate-800
-        border
-        border-slate-700
-        rounded-xl
-        px-4
-        py-3
-        outline-none
-        text-white
-        w-full
-    "
-                                    >
+                                    <div className="relative mt-4">
 
-                                        <option value="Economy">
-                                            Economy
-                                        </option>
+                                        <select
+                                            value={classType}
+                                            onChange={(e) =>
+                                                setClassType(e.target.value)
+                                            }
+                                            className="
+            w-full
+            bg-slate-800
+            border
+            border-slate-700
+            rounded-xl
+            px-4
+            py-3
+            pr-12
+            appearance-none
+            outline-none
+            text-white
+            cursor-pointer
+        "
+                                        >
+                                            <option value="Economy">
+                                                Economy
+                                            </option>
 
-                                        <option value="Business">
-                                            Business
-                                        </option>
+                                            <option value="Business">
+                                                Business
+                                            </option>
 
-                                        <option value="First Class">
-                                            First Class
-                                        </option>
+                                            <option value="First Class">
+                                                First Class
+                                            </option>
 
-                                    </select>
+                                        </select>
+
+                                        <div
+                                            className="
+            absolute
+            right-4
+            top-1/2
+            -translate-y-1/2
+            pointer-events-none
+            text-slate-400
+            text-lg
+        "
+                                        >
+                                            ▼
+                                        </div>
+
+                                    </div>
 
                                 </div>
 

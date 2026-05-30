@@ -49,6 +49,9 @@ export const searchFlights = async (req, res) => {
             query.date = date;
         }
 
+        console.log("REQ QUERY:", req.query);
+        console.log("MONGO QUERY:", query);
+
         const flights = await Flight.find(query);
 
         res.status(200).json(flights);

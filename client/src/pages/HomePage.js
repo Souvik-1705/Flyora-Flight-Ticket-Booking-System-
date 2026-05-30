@@ -8,11 +8,14 @@ const HomePage = () => {
     const [to, setTo] = useState("");
     const [date, setDate] = useState("");
     const [flights, setFlights] = useState([]);
+    const [searched, setSearched] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const searchHandler = async (e) => {
 
         e.preventDefault();
+
+        setSearched(true);
 
         if (!from && !to && !date) {
 
@@ -34,6 +37,7 @@ const HomePage = () => {
                 url += `&date=${date}`;
 
             }
+            console.log(url);
 
             const res = await fetch(url);
 
@@ -76,21 +80,25 @@ const HomePage = () => {
 
                 <div
                     className="
-                        bg-gradient-to-r
-                        from-blue-600
-                        to-indigo-700
-                        rounded-3xl
-                        p-10
-                        shadow-2xl
-                        mb-10
+                    bg-gradient-to-r
+                  from-blue-600
+                  to-indigo-700
+                    rounded-3xl
+                    p-6
+                    md:p-8
+                    lg:p-10
+                    shadow-2xl
+                    mb-10
                     "
                 >
 
                     <h1
                         className="
-                            text-5xl
-                            font-bold
-                            mb-4
+                        text-3xl
+                        md:text-4xl
+                        lg:text-5xl
+                        font-bold
+                        mb-4
                         "
                     >
                         Find Your Perfect Flight
@@ -98,12 +106,12 @@ const HomePage = () => {
 
                     <p
                         className="
-                            text-lg
-                            text-blue-100
+                        text-base
+                        md:text-lg
+                      text-blue-100
                         "
                     >
-                        Search and book flights
-                        easily with Flyora.
+                        Search and book flights easily with Flyora.
                     </p>
 
                 </div>
@@ -113,25 +121,25 @@ const HomePage = () => {
                 <form
                     onSubmit={searchHandler}
                     className="
-                        bg-slate-900
-                        border
-                        border-slate-800
-                        rounded-3xl
-                        p-8
-                        shadow-xl
-                        mb-10
-                    "
+    bg-slate-900
+    border
+    border-slate-800
+    rounded-3xl
+    p-5
+    md:p-8
+    shadow-xl
+    mb-10
+  "
                 >
 
                     <div
                         className="
-                            grid
-                            grid-cols-1
-                            md:grid-cols-2
-                            lg:grid-cols-4
-                            items-end
-                            gap-5
-                        "
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-4
+    gap-4
+  "
                     >
 
                         {/* From */}
@@ -144,15 +152,16 @@ const HomePage = () => {
                                 setFrom(e.target.value)
                             }
                             className="
-                                bg-slate-800
-                                border
-                                border-slate-700
-                                rounded-xl
-                                px-4
-                                py-3
-                                outline-none
-                                focus:border-blue-500
-                            "
+  w-full
+  bg-slate-800
+  border
+  border-slate-700
+  rounded-xl
+  px-4
+  py-3
+  outline-none
+  focus:border-blue-500
+"
                         />
 
                         {/* To */}
@@ -165,6 +174,7 @@ const HomePage = () => {
                                 setTo(e.target.value)
                             }
                             className="
+                                w-full
                                 bg-slate-800
                                 border
                                 border-slate-700
@@ -253,6 +263,13 @@ const HomePage = () => {
                                 space-y-5
                             "
                         >
+                            {searched && !loading && flights.length === 0 && (
+                                <div className="text-center py-10">
+                                    <h2 className="text-xl text-slate-400">
+                                        No flights found
+                                    </h2>
+                                </div>
+                            )}
 
                             {
                                 flights.map((flight) => (
