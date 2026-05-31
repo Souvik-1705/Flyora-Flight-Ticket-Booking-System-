@@ -16,6 +16,7 @@ A full-stack Flight Booking System built using the MERN Stack.
 - Delete Cancelled Booking
 - Razorpay Payment Integration
 - My Bookings Page
+- Flyora AI Assistant (Gemini API) for flight-related help and quick user support
 
 ### Admin Features
 
@@ -44,7 +45,7 @@ A full-stack Flight Booking System built using the MERN Stack.
 - Mongoose
 - JWT
 - Razorpay
-
+- Gemini API (Flyora AI Assistant)
 ## Installation
 
 ### Frontend
@@ -67,3 +68,4 @@ MONGO_URI=
 JWT_SECRET=
 RAZORPAY_KEY_ID=
 RAZORPAY_KEY_SECRET=
+GEMINI_API_KEY=
